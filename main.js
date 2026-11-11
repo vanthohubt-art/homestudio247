@@ -25,10 +25,18 @@
     var sdt = d.sdt.replace(/\D/g, '');
     if (!d.ten) { hien('Mẹ điền giúp em tên để em tiện xưng hô ạ.'); form.ten.focus(); return; }
     if (!/^0\d{9}$/.test(sdt)) { hien('Số điện thoại cần đủ 10 số, bắt đầu bằng 0 ạ.'); form.sdt.focus(); return; }
+    if (!d.dongy) { hien('Mẹ tích ô đồng ý giúp em để em gọi lại xác nhận lịch ạ.'); form.dongy.focus(); return; }
 
-    var tin = 'Chào Home Studio, mình muốn hỏi lịch chụp:\n' +
+    var ngay = '';
+    if (d.ngay) {
+      var p = d.ngay.split('-'), t = new Date(+p[0], +p[1] - 1, +p[2]);
+      var THU = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+      ngay = THU[t.getDay()] + ' ' + p[2] + '/' + p[1] + '/' + p[0];
+    }
+    var tin = 'Chào Home Studio, mình muốn giữ lịch chụp:\n' +
       '- Tên: ' + d.ten + '\n- SĐT: ' + sdt + '\n- Muốn chụp: ' + d.hang +
-      (d.tuoi ? '\n- Bé: ' + d.tuoi : '') + (d.ngay ? '\n- Ngày mong muốn: ' + d.ngay : '') +
+      (d.tuoi ? '\n- Bé: ' + d.tuoi : '') + (ngay ? '\n- Ngày: ' + ngay : '') +
+      '\n- Khung giờ: ' + (d.gio || 'chưa chắc, nhờ em tư vấn') +
       (d.ghi ? '\n- Dặn thêm: ' + d.ghi : '');
 
     chep(tin).then(function (ok) {

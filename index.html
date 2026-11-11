@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Home Studio – Chụp ảnh cho bé và gia đình",
  "telephone":"+84961818905","email":"homestudio6868@gmail.com","priceRange":"699.000đ – 6.250.000đ",
@@ -50,6 +50,10 @@
         <li>Gói từ 699.000đ</li>
         <li>Bãi gửi xe ngay cửa</li>
       </ul>
+      <a class="sao-google" href="https://maps.google.com/?cid=11943138543039496170" target="_blank" rel="noopener">
+        <span class="sao" aria-hidden="true">★★★★★</span>
+        <b>5,0</b> · 133 đánh giá trên Google Maps
+      </a>
     </div>
     <div class="anh"><img src="anh/hero-gia-dinh.jpg" alt="Bố mẹ bế bé chụp ảnh gia đình trong bối cảnh tông kem tại Home Studio" fetchpriority="high"></div>
   </div>
@@ -204,6 +208,33 @@
   </div>
 </section>
 
+<!-- 7b. CẢM NHẬN — chỉ trích đánh giá THẬT trên Google Maps, không tự viết -->
+<section class="phan" id="cam-nhan">
+  <div class="khung">
+    <div class="mo-dau">Cảm nhận</div>
+    <h2>Các mẹ nói gì sau buổi chụp</h2>
+    <p class="phu"><b>5,0★</b> trên Google Maps với 133 đánh giá, trong đó 132 đánh giá 5 sao.</p>
+    <div class="luoi cam-nhan">
+      <figure class="the">
+        <div class="sao" aria-label="5 sao">★★★★★</div>
+        <blockquote>“Cả team đều rất nhẹ nhàng và tạo không khí thoải mái, giúp bé và gia đình mình tự nhiên nhất trước ống kính. Ánh sáng, bố cục đều được xử lý rất tinh tế… Chắc chắn sẽ quay lại.”</blockquote>
+        <figcaption><b>Vượng Nguyễn</b><span>Đánh giá trên Google</span></figcaption>
+      </figure>
+      <figure class="the">
+        <div class="sao" aria-label="5 sao">★★★★★</div>
+        <blockquote>“Chú Dương đúng chuẩn ‘chú nhiếp ảnh có tâm’. Vừa chụp vừa pha trò, cả ekip cười rộn ràng. Ảnh thì vừa tự nhiên vừa tràn đầy năng lượng.”</blockquote>
+        <figcaption><b>Kieu Nguyen</b><span>Đánh giá trên Google</span></figcaption>
+      </figure>
+      <figure class="the">
+        <div class="sao" aria-label="5 sao">★★★★★</div>
+        <blockquote>“Đội ngũ chụp ảnh nhiệt tình, trang phục cho bé đa dạng.”</blockquote>
+        <figcaption><b>Huyền Nguyễn</b><span>Đánh giá trên Google</span></figcaption>
+      </figure>
+    </div>
+    <p style="margin:20px 0 0"><a class="nut phu-nut" href="https://maps.google.com/?cid=11943138543039496170" target="_blank" rel="noopener">Đọc đủ 133 đánh giá trên Google ↗</a></p>
+  </div>
+</section>
+
 <!-- 8. CAM KẾT -->
 <section class="phan nhat">
   <div class="khung">
@@ -244,13 +275,14 @@
       <p class="phu">Em trả lời trong 15 phút. Nhắn sau 21h thì sáng hôm sau trước 9h em trả lời ạ.</p>
       <dl>
         <dt>Địa chỉ</dt><dd>79 Hà Huy Tập, Yên Viên, Gia Lâm, Hà Nội</dd>
+        <dt>Giờ mở cửa</dt><dd>08:00 – 18:00 · tất cả các ngày</dd>
         <dt>Hotline</dt><dd><a href="tel:0961818905">0961 818 905</a></dd>
         <dt>Messenger</dt><dd><a href="https://m.me/ChupAnhChoBeHomestudio" target="_blank" rel="noopener">m.me/ChupAnhChoBeHomestudio</a></dd>
         <dt>Zalo</dt><dd><a href="https://zalo.me/0961818905" target="_blank" rel="noopener">0961 818 905</a></dd>
         <dt>Email</dt><dd><a href="mailto:homestudio6868@gmail.com">homestudio6868@gmail.com</a></dd>
       </dl>
       <iframe class="ban-do" loading="lazy" title="Bản đồ Home Studio"
-        src="https://maps.google.com/maps?q=79%20H%C3%A0%20Huy%20T%E1%BA%ADp%2C%20Y%C3%AAn%20Vi%C3%AAn%2C%20Gia%20L%C3%A2m%2C%20H%C3%A0%20N%E1%BB%99i&z=16&output=embed"></iframe>
+        src="https://maps.google.com/maps?q=Home%20Studio%2C%2079%20%C4%90.%20H%C3%A0%20Huy%20T%E1%BA%ADp%2C%20Ph%C3%B9%20%C4%90%E1%BB%95ng%2C%20H%C3%A0%20N%E1%BB%99i&ll=21.0802502,105.911634&z=17&output=embed"></iframe>
     </div>
     <form id="form-dat-lich" novalidate>
       <label>Tên mẹ (hoặc bố)
@@ -264,24 +296,38 @@
           <input name="tuoi" placeholder="Ví dụ: 7 tháng">
         </label>
       </div>
-      <label>Muốn chụp
-        <select name="hang">
-          <option>Chụp riêng bé</option>
-          <option>Bé và gia đình</option>
-          <option>Đại gia đình</option>
-          <option>Newborn</option>
-          <option>Khác (bầu, thời trang, ảnh thẻ…)</option>
-        </select>
-      </label>
-      <label>Ngày mong muốn
-        <input name="ngay" placeholder="Ví dụ: sáng thứ Bảy tuần sau">
-      </label>
+      <div class="hai-o">
+        <label>Muốn chụp
+          <select name="hang">
+            <option>Chụp riêng bé</option>
+            <option>Bé và gia đình</option>
+            <option>Đại gia đình</option>
+            <option>Newborn</option>
+            <option>Khác (bầu, thời trang, ảnh thẻ…)</option>
+          </select>
+        </label>
+        <label>Ngày muốn chụp
+          <input name="ngay" type="date">
+        </label>
+      </div>
+      <fieldset class="khung-gio">
+        <legend>Khung giờ giữ chỗ</legend>
+        <div class="o-gio">
+          <label><input type="radio" name="gio" value="08:00"><span>08:00</span></label>
+          <label><input type="radio" name="gio" value="10:00"><span>10:00</span></label>
+          <label><input type="radio" name="gio" value="14:00"><span>14:00</span></label>
+          <label><input type="radio" name="gio" value="16:00"><span>16:00</span></label>
+        </div>
+        <p class="ghi">Mẹ chọn giờ bé vừa ngủ dậy, ăn no thì bé hợp tác nhất. Chưa chắc thì để trống, em tư vấn giờ hợp với bé.</p>
+      </fieldset>
       <label>Mẹ muốn dặn em gì thêm
         <textarea name="ghi" rows="3" placeholder="Bé hay ngủ trưa lúc mấy giờ, đi mấy người…"></textarea>
       </label>
-      <button class="nut chinh" type="submit">Gửi cho em qua Messenger</button>
+      <label class="dong-y"><input type="checkbox" name="dongy" value="có">
+        <span>Mẹ đồng ý để Home Studio liên hệ tư vấn và dùng thông tin này để giữ lịch.</span></label>
+      <button class="nut chinh" type="submit">Gửi yêu cầu giữ lịch</button>
       <div class="bao-form" id="bao-form" role="status"></div>
-      <p class="ghi" style="margin:0">Bấm gửi thì nội dung được chép sẵn, mẹ chỉ cần dán vào Messenger.</p>
+      <p class="ghi" style="margin:0"><b>Giữ chỗ không cần cọc, chưa mất đồng nào ở bước này.</b><br>Bấm gửi thì nội dung được chép sẵn, mẹ chỉ cần dán vào Messenger.</p>
     </form>
   </div>
 </section>
@@ -289,7 +335,7 @@
 
 <footer class="chan">
   <div class="khung">
-    <div><b>Home Studio – Chụp ảnh cho bé và gia đình</b><br>79 Hà Huy Tập, Yên Viên, Gia Lâm, Hà Nội · 0961 818 905 · homestudio6868@gmail.com</div>
+    <div><b>Home Studio – Chụp ảnh cho bé và gia đình</b><br>79 Hà Huy Tập, Yên Viên, Gia Lâm, Hà Nội · 0961 818 905 · homestudio6868@gmail.com<br>Mở cửa 08:00 – 18:00 · tất cả các ngày</div>
     <div><a href="bang-gia.html">Bảng giá</a> · <a href="https://m.me/ChupAnhChoBeHomestudio" target="_blank" rel="noopener">Fanpage</a></div>
   </div>
 </footer>
@@ -300,6 +346,6 @@
   <a class="nut chinh" href="https://m.me/ChupAnhChoBeHomestudio" target="_blank" rel="noopener">Nhắn tin</a>
 </nav>
 
-<script src="main.js"></script>
+<script src="main.js?v=3"></script>
 </body>
 </html>

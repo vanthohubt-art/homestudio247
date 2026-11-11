@@ -176,6 +176,22 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus { outline: 2px solid var(--nhan); outline-offset: 1px; }
 .hai-o { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 520px) { .hai-o { grid-template-columns: 1fr; } }
+.dong-y { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; font-size: 14.5px; color: var(--chu-nhat); cursor: pointer; }
+.dong-y input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: var(--nhan); }
+.khung-gio { border: 0; margin: 0; padding: 0; min-width: 0; }
+.khung-gio legend { font-weight: 600; font-size: 15px; padding: 0; margin-bottom: 6px; }
+.khung-gio .ghi { margin: 8px 0 0; }
+.o-gio { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.o-gio label { display: block; font-weight: 600; }
+.o-gio input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.o-gio span {
+  display: block; text-align: center; padding: 12px 0; border-radius: 12px; cursor: pointer;
+  background: var(--nen); border: 1px solid var(--vien); font-size: 16px; transition: background .15s, color .15s;
+}
+.o-gio span:hover { border-color: var(--nhan); }
+.o-gio input:checked + span { background: var(--nhan); border-color: var(--nhan); color: #fff; }
+.o-gio input:focus-visible + span { outline: 2px solid var(--nhan); outline-offset: 2px; }
+@media (max-width: 380px) { .o-gio { grid-template-columns: repeat(2, 1fr); } }
 .bao-form { display: none; background: var(--nhan-nhat); border-radius: 12px; padding: 14px 16px; font-size: 15px; }
 .bao-form.hien { display: block; }
 .lien-he dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0 0 20px; }
@@ -195,3 +211,17 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--nhan); outl
 .thanh-goi a { flex: 1; min-height: 46px; font-size: 15px; padding: 10px 8px; }
 @media (max-width: 820px) { .thanh-goi { display: flex; } }
 @media (min-width: 821px) { .chan { padding-bottom: 32px; } }
+
+/* ── sao Google + cảm nhận (thêm 11/11/2026) ── */
+.sao { color: #E8A317; letter-spacing: 2px; }
+.sao-google {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 8px 14px;
+  background: var(--the); border: 1px solid var(--vien); border-radius: 999px;
+  font-size: 15px; color: var(--chu-nhat); text-decoration: none;
+}
+.sao-google b { color: var(--chu); }
+.sao-google:hover { border-color: var(--nhan); }
+.cam-nhan .the { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.cam-nhan blockquote { margin: 0; font-size: 16px; line-height: 1.6; flex: 1; }
+.cam-nhan figcaption { display: grid; font-size: 15px; border-top: 1px solid var(--vien); padding-top: 12px; }
+.cam-nhan figcaption span { font-size: 13.5px; color: var(--chu-nhat); }
