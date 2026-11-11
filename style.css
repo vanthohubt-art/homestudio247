@@ -225,3 +225,58 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--nhan); outl
 .cam-nhan blockquote { margin: 0; font-size: 16px; line-height: 1.6; flex: 1; }
 .cam-nhan figcaption { display: grid; font-size: 15px; border-top: 1px solid var(--vien); padding-top: 12px; }
 .cam-nhan figcaption span { font-size: 13.5px; color: var(--chu-nhat); }
+
+/* ══ GIAO DIỆN HƯỚNG A (11/11/2026): tông kem ấm làm sang hơn + form khối nâu sẫm ══ */
+:root { --toi: #2E241E; --toi-2: #3B2F28; --toi-vien: #54453B; --toi-chu: #F6EEE7; --toi-nhat: #C9B8AB; }
+
+/* tiêu đề có chân — chỉ h1/h2, chữ thường vẫn Be Vietnam Pro cho dễ đọc trên điện thoại */
+h1, h2 { font-family: "Playfair Display", Georgia, serif; font-weight: 700; letter-spacing: 0; }
+h1 { font-size: clamp(34px, 6.4vw, 58px); line-height: 1.15; }
+h1 em { font-style: italic; font-weight: 600; color: var(--nhan); }
+h2 { line-height: 1.22; }
+
+/* ảnh đầu trang: bo lớn + thẻ đánh giá nổi */
+.anh-dau { position: relative; }
+.anh-dau .anh { border-radius: 28px; box-shadow: 0 24px 60px -28px rgba(70, 40, 20, .45); }
+.the-sao {
+  position: absolute; left: -22px; bottom: 28px; display: grid; gap: 2px; padding: 14px 18px;
+  background: var(--the); border: 1px solid var(--vien); border-radius: 16px; text-decoration: none;
+  box-shadow: 0 14px 34px -14px rgba(70, 40, 20, .35); font-size: 14px; color: var(--chu-nhat);
+}
+.the-sao b { font-size: 17px; color: var(--chu); }
+.the-sao:hover { border-color: var(--nhan); }
+@media (max-width: 820px) { .the-sao { left: 12px; bottom: 12px; padding: 10px 14px; } }
+
+/* dải số liệu */
+.dai-so { background: var(--toi); color: var(--toi-chu); }
+.dai-so .khung { display: grid; grid-template-columns: repeat(4, 1fr); padding-top: 26px; padding-bottom: 26px; gap: 12px; }
+.dai-so div { display: grid; text-align: center; }
+.dai-so b { font-family: "Playfair Display", Georgia, serif; font-size: clamp(26px, 4vw, 38px); line-height: 1.1; color: #F2B48F; }
+.dai-so span { font-size: 14px; color: var(--toi-nhat); }
+@media (max-width: 600px) { .dai-so .khung { grid-template-columns: repeat(2, 1fr); row-gap: 20px; } }
+
+/* thẻ: bo mềm hơn, nhấc nhẹ khi rê chuột */
+.the { border-radius: 18px; transition: transform .2s, box-shadow .2s; }
+@media (hover: hover) { .luoi .the:hover, .ly-do .the:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(70, 40, 20, .4); } }
+.anh-goi { border-radius: 18px 18px 0 0; }
+
+/* form đặt lịch trên khối nâu sẫm */
+#form-dat-lich { background: var(--toi); border: 0; border-radius: 28px; padding: 28px; color: var(--toi-chu); box-shadow: 0 30px 60px -30px rgba(46, 36, 30, .6); }
+#form-dat-lich label, #form-dat-lich legend { color: var(--toi-chu); }
+#form-dat-lich input:not([type=radio]):not([type=checkbox]), #form-dat-lich select, #form-dat-lich textarea {
+  background: var(--toi-2); border-color: var(--toi-vien); color: var(--toi-chu); color-scheme: dark;
+}
+#form-dat-lich ::placeholder { color: #9C8B7F; }
+#form-dat-lich .o-gio span { background: var(--toi-2); border-color: var(--toi-vien); color: var(--toi-chu); }
+#form-dat-lich .o-gio input:checked + span { background: #F2B48F; border-color: #F2B48F; color: var(--toi); }
+#form-dat-lich .ghi, #form-dat-lich .dong-y { color: var(--toi-nhat); }
+#form-dat-lich .ghi b { color: var(--toi-chu); }
+#form-dat-lich .nut.chinh { background: #E07A4C; min-height: 54px; font-size: 17px; }
+#form-dat-lich .nut.chinh:hover { background: #C9653A; }
+#form-dat-lich .bao-form { background: var(--toi-2); color: var(--toi-chu); }
+.dau-form { display: flex; gap: 14px; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--toi-vien); }
+.dau-form b { display: block; font-size: 19px; }
+.dau-form span:not(.so-form) { font-size: 14px; color: var(--toi-nhat); }
+.so-form { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: #F2C46B; color: var(--toi); font-family: "Playfair Display", Georgia, serif; font-weight: 700; }
+.trich { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 600; }
+@media (max-width: 820px) { .the-sao { padding: 8px 12px; font-size: 12.5px; border-radius: 12px; } .the-sao b { font-size: 15px; } .the-sao .sao { font-size: 12px; } }
