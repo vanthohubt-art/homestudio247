@@ -280,3 +280,44 @@ h2 { line-height: 1.22; }
 .so-form { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: #F2C46B; color: var(--toi); font-family: "Playfair Display", Georgia, serif; font-weight: 700; }
 .trich { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 600; }
 @media (max-width: 820px) { .the-sao { padding: 8px 12px; font-size: 12.5px; border-radius: 12px; } .the-sao b { font-size: 15px; } .the-sao .sao { font-size: 12px; } }
+
+/* ══ BẢNG GIÁ DẠNG THẺ (11/11/2026) — thẻ sinh bởi sinh-bang-gia.mjs ══ */
+.tu-gia { display: inline-block; margin-left: 6px; font-weight: 800; color: var(--nhan); white-space: nowrap; }
+.luoi-goi {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: 14px;
+  overflow-x: auto; scroll-snap-type: x mandatory; padding: 16px 2px 10px; margin-top: 8px;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+}
+.the-goi {
+  position: relative; scroll-snap-align: start; display: flex; flex-direction: column;
+  background: var(--the); border: 1px solid var(--vien); border-radius: 22px; padding: 26px 20px 20px;
+}
+.the-goi.noi { border: 2px solid var(--nhan); box-shadow: 0 22px 44px -28px rgba(180, 83, 42, .55); }
+.nhan-goi {
+  position: absolute; top: -12px; left: 18px; background: var(--nhan); color: #fff; font-size: 12px; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px;
+}
+.the-goi h3 { font-family: "Playfair Display", Georgia, serif; font-size: 22px; margin: 0 0 2px; }
+.phu-goi { font-size: 13.5px; color: var(--chu-nhat); }
+.gia-goi { font-size: 26px; font-weight: 800; color: var(--nhan); margin: 6px 0 2px; font-variant-numeric: tabular-nums; }
+.gia-goi s { display: block; font-size: 14px; font-weight: 500; color: var(--chu-nhat); }
+.muc-goi { border-top: 1px solid var(--vien); margin-top: 14px; padding-top: 14px; }
+.muc-goi > b { display: block; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--chu-nhat); margin-bottom: 8px; }
+.muc-goi ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: 15px; line-height: 1.45; }
+.muc-goi li { padding-left: 22px; position: relative; }
+.muc-goi li::before { content: "✓"; position: absolute; left: 0; color: var(--xanh); font-weight: 800; }
+.nut-goi {
+  margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 46px; border-radius: 999px;
+  background: var(--nhan-nhat); color: var(--nhan-dam); font-weight: 700; text-decoration: none; margin-top: 20px;
+}
+.muc-goi:last-of-type { margin-bottom: auto; }
+.nut-goi:hover { background: var(--nhan); color: #fff; }
+.the-goi.noi .nut-goi { background: var(--nhan); color: #fff; }
+.the-goi.noi .nut-goi:hover { background: var(--nhan-dam); }
+@media (max-width: 820px) {
+  .luoi-goi { grid-auto-columns: 80%; margin-right: -16px; padding-right: 16px; }
+}
+h1, h2, h3, .dai-so b, .so-form, .the-goi h3 { font-variant-numeric: lining-nums; }
+.tu-gia { display: block; margin: 6px 0 0; font-size: 18px; }
+@media (min-width: 1000px) { .luoi-goi { grid-auto-columns: minmax(0, 1fr); overflow-x: visible; } }
+@media (min-width: 1000px) { .gia-goi { font-size: clamp(19px, 2.1vw, 26px); } .the-goi { padding-left: 16px; padding-right: 16px; } }

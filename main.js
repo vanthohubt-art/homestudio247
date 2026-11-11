@@ -8,6 +8,22 @@
 
   function hien(s) { bao.innerHTML = s; bao.classList.add('hien'); }
 
+  // Bấm "Tư vấn gói này" ở bảng giá → index.html?goi=Baby%203#dat-lich: chọn sẵn hạng mục + ghi tên gói.
+  var goi = '';
+  try { goi = (new URLSearchParams(location.search).get('goi') || '').slice(0, 40); } catch (e) {}
+  if (goi) {
+    var HANG = [
+      [/^newborn/i, 'Newborn'],
+      [/^baby/i, 'Chụp riêng bé'],
+      [/^(family|gia đình nhỏ)/i, 'Bé và gia đình'],
+      [/^(silver|gold|diamond|không ảnh phóng)/i, 'Đại gia đình'],
+      [/./, 'Khác (bầu, thời trang, ảnh thẻ…)']
+    ];
+    for (var i = 0; i < HANG.length; i++) if (HANG[i][0].test(goi)) { form.hang.value = HANG[i][1]; break; }
+    var dauForm = form.querySelector('.dau-form span:not(.so-form)');
+    if (dauForm) dauForm.textContent = 'Mẹ đang hỏi gói ' + goi + '. Em gọi lại xác nhận ngày giờ trước khi giữ chỗ.';
+  }
+
   function chep(chu) {
     if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(chu).then(function () { return true; }, function () { return false; });
     var t = document.createElement('textarea');
@@ -34,7 +50,7 @@
       ngay = THU[t.getDay()] + ' ' + p[2] + '/' + p[1] + '/' + p[0];
     }
     var tin = 'Chào Home Studio, mình muốn giữ lịch chụp:\n' +
-      '- Tên: ' + d.ten + '\n- SĐT: ' + sdt + '\n- Muốn chụp: ' + d.hang +
+      '- Tên: ' + d.ten + '\n- SĐT: ' + sdt + '\n- Muốn chụp: ' + d.hang + (goi ? '\n- Gói quan tâm: ' + goi : '') +
       (d.tuoi ? '\n- Bé: ' + d.tuoi : '') + (ngay ? '\n- Ngày: ' + ngay : '') +
       '\n- Khung giờ: ' + (d.gio || 'chưa chắc, nhờ em tư vấn') +
       (d.ghi ? '\n- Dặn thêm: ' + d.ghi : '');
