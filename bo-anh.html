@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Album ảnh mẫu – Home Studio Yên Viên</title>
+<meta name="description" content="Album ảnh mẫu của Home Studio: sơ sinh, concept bé gái, bé trai, baby kid, sinh nhật, mẹ và bé, gia đình, mẹ bầu, cử nhân. Xem trọn bộ để chọn concept cho buổi chụp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=12">
+</head>
+<body>
+
+<header class="dau">
+  <div class="khung">
+    <a class="logo" href="index.html">Home <span>Studio</span></a>
+    <nav class="menu">
+      <a href="index.html">Trang chủ</a>
+      <a href="bang-gia.html">Bảng giá</a>
+      <a href="bo-anh.html" aria-current="page">Album ảnh</a>
+      <a href="index.html#cam-nhan">Cảm nhận</a>
+      <a href="index.html#dat-lich">Đặt lịch</a>
+    </nav>
+    <a class="nut chinh nho" href="tel:0961818905">Gọi 0961 818 905</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding-bottom:18px">
+  <div class="khung" style="display:block">
+    <div class="mo-dau">Album ảnh</div>
+    <h1>Xem trọn bộ trước khi chọn concept</h1>
+    <p class="loi">Ảnh chụp tại studio, đã chỉnh màu như mẹ sẽ nhận. Mẹ bấm vào một album để xem từng tấm, ưng bộ nào thì bấm “Tư vấn concept này”, em gửi chi tiết gói và lịch trống.</p>
+  </div>
+</section>
+
+<section class="phan album" id="album">
+  <div class="khung khung-album">
+    <aside class="ben-album">
+      <label class="tim-album"><span aria-hidden="true">⌕</span><input id="tim" type="search" placeholder="Tìm album: sơ sinh, bầu…" autocomplete="off"></label>
+      <div class="loc-nhom" id="loc-nhom" role="tablist"></div>
+      <ul class="ds-album" id="ds-album"></ul>
+    </aside>
+    <div class="than-album">
+      <div class="dau-album">
+        <button class="nut-lui" id="nut-lui" hidden>← Tất cả album</button>
+        <h2 id="ten-album">Tất cả album</h2>
+        <span class="so-anh" id="so-anh"></span>
+        <a class="nut chinh nho" id="nut-tu-van" href="index.html#dat-lich" hidden>Tư vấn concept này</a>
+      </div>
+      <div class="luoi-album" id="luoi-album"></div>
+      <div class="luoi-anh" id="luoi-anh" hidden></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="xem-anh" id="xem-anh" hidden>
+  <button class="dong" id="xa-dong" aria-label="Đóng">×</button>
+  <button class="lui" id="xa-lui" aria-label="Ảnh trước">‹</button>
+  <img id="xa-anh" alt="">
+  <button class="toi" id="xa-toi" aria-label="Ảnh sau">›</button>
+  <div class="dem" id="xa-dem"></div>
+</div>
+
+<footer class="chan">
+  <div class="khung">
+    <div><b>Home Studio – Chụp ảnh cho bé và gia đình</b><br>79 Hà Huy Tập, Yên Viên, Gia Lâm, Hà Nội · 0961 818 905 · homestudio6868@gmail.com</div>
+    <div><a href="index.html">Trang chủ</a> · <a href="bang-gia.html">Bảng giá</a> · <a href="https://m.me/ChupAnhChoBeHomestudio" target="_blank" rel="noopener">Fanpage</a></div>
+  </div>
+</footer>
+
+<nav class="thanh-goi">
+  <a class="nut phu-nut" href="tel:0961818905">Gọi</a>
+  <a class="nut phu-nut" href="https://zalo.me/0961818905" target="_blank" rel="noopener">Zalo</a>
+  <a class="nut chinh" href="https://m.me/ChupAnhChoBeHomestudio" target="_blank" rel="noopener">Nhắn tin</a>
+</nav>
+<script src="album/du-lieu.js?v=1"></script>
+<script src="album.js?v=2"></script>
+</body>
+</html>

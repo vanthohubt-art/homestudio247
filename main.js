@@ -13,9 +13,9 @@
   try { goi = (new URLSearchParams(location.search).get('goi') || '').slice(0, 40); } catch (e) {}
   if (goi) {
     var HANG = [
-      [/^newborn/i, 'Newborn'],
-      [/^baby/i, 'Chụp riêng bé'],
-      [/^(family|gia đình nhỏ)/i, 'Bé và gia đình'],
+      [/^(newborn|sơ sinh)/i, 'Newborn'],
+      [/^(baby|concept bé|thời trang|concept mầm non)/i, 'Chụp riêng bé'],
+      [/^(family|gia đình|mẹ và bé)/i, 'Bé và gia đình'],
       [/^(silver|gold|diamond|không ảnh phóng)/i, 'Đại gia đình'],
       [/./, 'Khác (bầu, thời trang, ảnh thẻ…)']
     ];
