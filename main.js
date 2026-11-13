@@ -24,6 +24,64 @@
     if (dauForm) dauForm.textContent = 'Mẹ đang hỏi gói ' + goi + '. Em gọi lại xác nhận ngày giờ trước khi giữ chỗ.';
   }
 
+  // ── LỊCH TRỐNG (12/11/2026): đọc lịch Google của studio qua Apps Script lich-agent (chỉ Trống/Còn 1/Kín, không có tên khách).
+  // Chưa có địa chỉ hoặc gọi hỏng ⇒ vẫn chọn được ngày + giờ, em xác nhận khi gọi lại.
+  var LICH_URL = 'https://script.google.com/macros/s/AKfycbwF7bNcWkyWx-J_8gD-ugVWVwJQh_3mpjajljRekjOgZ2f0nVsMAPlFZ-dbhKiZID7z/exec';
+  if (location.hostname === 'localhost' && /[?&]lichthu/.test(location.search)) LICH_URL = '_mau/lich-thu.json';
+  var daiNgay = document.getElementById('dai-ngay');
+  var oNgay = form.querySelector('input[name=ngay]');
+  var radioGio = [].slice.call(form.querySelectorAll('input[name=gio]'));
+  var TEN_TT = { trong: 'Trống', con1: 'Còn 1 chỗ', kin: 'Kín', qua: 'Đã qua' };
+  var lich = null;
+
+  function ngayTuDung(soNgay) {   // dự phòng: tự sinh ngày, không có trạng thái
+    var THU = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'], ra = [], d = new Date();
+    for (var i = 0; i < soNgay; i++) {
+      var t = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
+      var iso = t.getFullYear() + '-' + ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2);
+      ra.push({ d: iso, thu: THU[t.getDay()], gio: null });
+    }
+    return ra;
+  }
+  function veNgay(ds) {
+    daiNgay.innerHTML = ds.map(function (n, i) {
+      var p = n.d.split('-'), het = n.gio && n.trong === 0;
+      var daQua = n.gio && Object.keys(n.gio).every(function (k) { return n.gio[k] === 'qua'; });
+      var nhan = !n.gio ? '' : daQua ? 'Hết giờ' : het ? 'Kín' : 'Còn ' + n.trong + ' giờ';
+      return '<button type="button" class="o-ngay' + (het ? ' het' : '') + '" data-i="' + i + '" aria-pressed="false">' +
+        '<span>' + (i === 0 ? 'Hôm nay' : i === 1 ? 'Mai' : n.thu) + '</span><b>' + +p[2] + '</b><small>' + (nhan || 'Th' + +p[1]) + '</small></button>';
+    }).join('');
+  }
+  function chonNgay(i) {
+    var n = lich[i];
+    oNgay.value = n.d;
+    [].forEach.call(daiNgay.children, function (b, j) { b.setAttribute('aria-pressed', j === i); });
+    radioGio.forEach(function (r) {
+      var tt = n.gio ? n.gio[r.value] : '', nhan = r.nextElementSibling.querySelector('small');
+      var khoa = tt === 'kin' || tt === 'qua';
+      r.disabled = khoa; if (khoa) r.checked = false;
+      r.parentNode.className = tt ? 'tt-' + tt : '';
+      nhan.textContent = tt ? TEN_TT[tt] : '';
+    });
+  }
+  daiNgay.addEventListener('click', function (e) {
+    var b = e.target.closest('.o-ngay'); if (b) chonNgay(+b.dataset.i);
+  });
+  function dungLich(ds, coTrangThai) {
+    lich = ds; veNgay(ds);
+    document.getElementById('chu-thich-lich').hidden = !coTrangThai;
+    var dau = 0;
+    if (coTrangThai) for (var i = 0; i < ds.length; i++) if (ds[i].trong > 0) { dau = i; break; }
+    chonNgay(dau);
+  }
+  dungLich(ngayTuDung(21), false);
+  if (LICH_URL && window.fetch) {
+    var hetGio = new Promise(function (_, loi) { setTimeout(function () { loi(new Error('chậm')); }, 9000); });
+    Promise.race([fetch(LICH_URL).then(function (r) { return r.json(); }), hetGio]).then(function (kq) {
+      if (kq && kq.ngay && kq.ngay.length) dungLich(kq.ngay, true);
+    }).catch(function () { /* giữ bản dự phòng */ });
+  }
+
   function chep(chu) {
     if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(chu).then(function () { return true; }, function () { return false; });
     var t = document.createElement('textarea');

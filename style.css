@@ -483,3 +483,25 @@ h2 { font-size: clamp(32px, 4.6vw, 46px); line-height: 1.1; }
   .hero.tran .the-sao { position: relative; z-index: 2; text-shadow: 0 2px 12px rgba(0,0,0,.6); }
 }
 @media (min-width: 1024px) { .hero.tran .the-sao { display: none; } }
+
+/* ══ LỊCH TRỐNG trong form đặt lịch (12/11/2026) — dữ liệu từ lich-agent (Apps Script đọc lịch Google) ══ */
+#chon-lich { scroll-margin-top: 90px; }
+.dai-ngay { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px; margin-bottom: 8px; scroll-snap-type: x proximity; scrollbar-width: thin; }
+.o-ngay { flex: 0 0 68px; scroll-snap-align: start; display: grid; justify-items: center; gap: 0; padding: 8px 4px; border-radius: 10px; cursor: pointer;
+  font: inherit; color: var(--toi-chu); background: var(--toi-2); border: 1px solid var(--toi-vien); }
+.o-ngay span { font-size: 12px; color: var(--toi-nhat); }
+.o-ngay b { font-size: 22px; font-weight: 700; line-height: 1.2; font-variant-numeric: lining-nums; }
+.o-ngay small { font-size: 11px; color: #9EC3A9; white-space: nowrap; }
+.o-ngay.het small { color: var(--toi-nhat); }
+.o-ngay.het { opacity: .55; }
+.o-ngay[aria-pressed="true"] { background: var(--nhan); border-color: var(--nhan); color: var(--nen); }
+.o-ngay[aria-pressed="true"] span, .o-ngay[aria-pressed="true"] small { color: var(--nen); }
+.o-gio span small { display: block; font-size: 11.5px; font-weight: 500; margin-top: 2px; min-height: 1em; }
+.o-gio .tt-trong span small { color: #9EC3A9; }
+.o-gio .tt-con1 span small { color: #F0C060; }
+.o-gio .tt-kin span, .o-gio .tt-qua span { opacity: .4; cursor: not-allowed; text-decoration: line-through; }
+.o-gio .tt-kin span small, .o-gio .tt-qua span small { text-decoration: none; }
+.o-gio input:checked + span small { color: var(--nen); }
+.chu-thich { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 13px; color: var(--toi-nhat); margin: 10px 0 0; }
+.chu-thich i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+.chu-thich i.ct-trong { background: #9EC3A9; } .chu-thich i.ct-con1 { background: #F0C060; } .chu-thich i.ct-kin { background: var(--toi-vien); }
