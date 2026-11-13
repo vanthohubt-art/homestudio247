@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Album chọn ảnh — Home Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#241A1D">
+<meta property="og:title" content="Album ảnh của bé — Home Studio">
+<meta property="og:description" content="Mẹ bấm ♡ chọn ảnh muốn bên em chỉnh, rồi xác nhận là xong.">
+<style>
+  /* Trang bọc: link đẹp homestudio247.com/chon-anh/?a=<mã> → mở app Apps Script (album-agent) trong khung toàn màn hình.
+     Không chứa dữ liệu khách nào — chỉ chuyển mã album sang app. */
+  html, body { margin: 0; height: 100%; background: #241A1D; color: #F7EDEF; font: 15px/1.5 "Be Vietnam Pro", -apple-system, "Segoe UI", Roboto, sans-serif; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; height: 100dvh; border: 0; display: block; }
+  .cho { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 24px; }
+  .cho b { font-family: "Cormorant Garamond", Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+  .cho a { color: #E7A9B3; }
+</style>
+</head>
+<body>
+<div class="cho" id="cho"><b>Home Studio</b><span>Đang mở album của mẹ…</span>
+  <span id="du-phong" hidden style="font-size:13px;color:#CBB5BA">Chờ lâu quá? <a id="mo-thang" href="#">Mở trực tiếp album</a></span></div>
+<script>
+  var APP = 'https://script.google.com/macros/s/AKfycbwLyheNPcx8mxaY1uMR_XtlvBsRs2QYLtl-SmIneu9F2w0CDvgSiPYaKNR6QBU0nPA/exec';
+  var ma = (new URLSearchParams(location.search).get('a') || '').toLowerCase();
+  var cho = document.getElementById('cho');
+  if (!/^[a-z0-9]{12}$/.test(ma)) {
+    cho.innerHTML = '<b>Home Studio</b><span>Mẹ mở đúng link album bên em gửi giúp em nhé.<br>Cần hỗ trợ: <a href="tel:0961818905">0961 818 905</a></span>';
+  } else {
+    var src = APP + '?a=' + ma;
+    document.getElementById('mo-thang').href = src;
+    var f = document.createElement('iframe');
+    f.src = src; f.title = 'Album chọn ảnh';
+    f.allow = 'clipboard-write; web-share';
+    f.onload = function () { cho.remove(); };
+    document.body.appendChild(f);
+    setTimeout(function () { var d = document.getElementById('du-phong'); if (d) d.hidden = false; }, 8000);
+  }
+</script>
+</body>
+</html>
