@@ -121,3 +121,9 @@
     });
   });
 })();
+
+// Mở trang kèm #dat-lich / #chon-lich (từ Bảng giá, Album): trình duyệt điện thoại hay nhảy trước khi ảnh và lịch tải xong rồi đứng ở đầu trang ⇒ cuộn lại khi trang tải xong.
+window.addEventListener('load', function () {
+  var id = location.hash.slice(1), el = id && document.getElementById(id);
+  if (el && Math.abs(el.getBoundingClientRect().top) > 150) el.scrollIntoView({ block: 'start', behavior: 'instant' });
+});
